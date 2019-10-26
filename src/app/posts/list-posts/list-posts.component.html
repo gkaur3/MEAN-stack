@@ -1,0 +1,14 @@
+<app-panel-box>
+  <span panel-title>POSTS</span>
+  <div panel-content>
+      <div *ngFor="let x of posts">
+          <label>Post Title:</label><span>{{x.post_title}}</span><br/>
+          <label>Post Description:</label><span>{{x.post_des}}</span><br/>
+          <label>Created by:</label><span>{{x.post_creator}}</span> <br/>
+          <app-comments [show]="show" [post_id]="x._id"></app-comments>
+          <app-edit-post [editPostShow]="editPostShow" [post_id]="x._id"></app-edit-post>
+          <br/> <br/>
+      </div>
+  </div>
+</app-panel-box>
+

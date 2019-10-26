@@ -1,0 +1,5 @@
+<a (click) = "edit()">Edit</a>
+<div *ngIf="editPostShow">
+  <input type="text" name = "_editPost" [(ngModel)]="_editPost"/> &nbsp;
+  <button class="btn btn-primary" (click)="editPost()">Edit</button>
+</div>

@@ -1,0 +1,20 @@
+<app-panel-box>
+  <span panel-title>CREATE POST</span>
+  <div panel-content>
+    <form #postform="ngForm">
+      <input type="text" placeholder="Post Title" name="post_title"  class ="form-control" required minlength="5"
+      [(ngModel)]="post.post_title"  #pTitleVar="ngModel"/>
+      <div *ngIf="!pTitleVar.valid && pTitleVar.touched">
+        <div class="alert alert-danger" *ngIf="pTitleVar.errors.minlength">Please enter Post Title</div>
+      </div>
+      <br/>
+      <input type="text" placeholder="Post Description" name="post_des" class="form-control" required minlength="5"
+      [(ngModel)]="post.post_des" #pDesVar="ngModel"/><br/>
+      <div *ngIf="!pDesVar.valid && pDesVar.touched">
+          <div class="alert alert-danger" *ngIf="pTitleVar.errors.minlength">Please enter Post Description</div>
+      </div>
+      <label>Created by:&nbsp; </label><span>{{post.post_creator}}</span><br/>
+      <button class="btn btn-primary" (click)="createPost()">Create</button>
+    </form>
+  </div>
+</app-panel-box>

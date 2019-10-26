@@ -1,0 +1,21 @@
+<app-panel-box>
+    <span panel-title>LOGIN</span>
+    <div panel-content>
+      <form #loginForm = "ngForm">
+        <input type="text" class= "form-control" placeholder="enter username" name="username" [(ngModel)]="user.username"
+        required #usernameVar="ngModel"/>
+        <div *ngIf="!usernameVar.valid && usernameVar.touched">
+          <div class= "alert alert-danger" *ngIf="usernameVar.errors.required">Please enter your username</div>
+        </div>
+        <br/>
+        <input type="password" class="form-control" name="password"  placeholder="enter password" [(ngModel)]="user.password"
+        required #passVar="ngModel"/>
+        <div *ngIf="!passVar.valid && passVar.touched">
+          <div  class="alert alert-danger" *ngIf="passVar.errors.required" >Please enter your password</div>
+        </div>
+        <br/>
+        <button class="btn btn-primary" [disabled]="!loginForm.valid" (click)="login()">Login</button>
+
+      </form>
+    </div>    
+</app-panel-box>
